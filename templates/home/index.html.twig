@@ -3,5 +3,86 @@
 {% block title %}{% endblock %}
 
 {% block body %}
-
+<main>
+        <div>
+            <h1>Nos expériences préférés</h1>
+            <div class="p-5 ">
+            <div class="Produit  mt-1 row">
+                <div  class=" col-3">
+                    <div class="card" style="width: 13rem;">
+                        <img class="card-img-top" src="..." alt="Card image cap">
+                        <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example </p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+                <div class=" col-3">
+                    <div class="card" style="width: 13rem;">
+                        <img class="card-img-top" src="..." alt="Card image cap">
+                        <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example </p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card" style="width: 13rem;">
+                        <img class="card-img-top" src="..." alt="Card image cap">
+                        <div class="card-body">
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example </p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-3">
+                    <div class="card" style="width: 13rem;">
+                        <img class="card-img-top" src="..." alt="Card image cap">
+                        <div class="card-body"></div>
+                        <h5 class="card-title">Card title</h5>
+                        <p class="card-text">Some quick example </p>
+                        <a href="#" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="cadre">
+                <h2>Des expériences authentiques</h2>
+                <p>Laissez vous porter par votre  curiosité, ressentez l’émotion de la découverte et explorez le monde comme jamais.</p>
+            </div>
+            <div class="p-5 sortie">
+                <h2>Profitez de nos sorties</h2>
+                <div class=" d-flex flex-row justify-content-between">
+                    <div>
+                        <h3>Culturels</h3>
+                        <img src="{{asset('img/culture.jpg')}}" alt="">
+                    </div>
+                    <div>
+                        <h3>Gustatives</h3>
+                        <img src="{{asset('img/gastronomie.jpg')}}" alt="">
+                    </div>
+                    <div>
+                        <h3>Sportives</h3>
+                        <img src="{{asset('img/sportive.jpg')}}" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="p-2 bas-sortie d-flex flex-row justify-content-center">
+                <div class="bas-text">
+                    <h3>On vous propose</h3>
+                    <p>Abonnez vous à notre newsleter pour connaitre les meilleurs plan sur la capitale</p>
+                    <input type="text" placeholder="E-mail">
+                    <button>S'abonner</button>
+                </div>
+                <div>
+                    <img src="{{asset('img/louvre.jpg')}}" alt="">
+                </div>
+            </div>
+        </div>
+ </main>        
+         
 {% endblock %}

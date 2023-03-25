@@ -1,4 +1,7 @@
-
+body{
+    margin: 0;
+    padding: 0;
+}
 
 .nav-image{
     
@@ -29,3 +32,67 @@ li{
     margin: 20px;
 }
 
+.admin-a{
+    color: white;
+}
+h1{
+    text-align: center;
+}
+.produit{
+    margin: 0 auto;
+}
+.cadre{
+    border-bottom: solid 1px black;
+    border-top: solid 1px black;
+    height: 115px;
+    width: 95%;
+    margin: 0 auto;
+    padding: 5px;
+}
+.cadre > *{
+    text-align: center;
+}
+.sortie img{
+width: 253px;
+height:134px ;
+}
+.sortie h2{
+    text-align: center;
+}
+.bas-sortie div ,.bas-sortie img{
+    width:245px ;
+    height: 140px;
+    border-radius: 10px;
+}
+.bas-text{
+    background-color: #D1F6E2;
+}
+.bas-sortie{
+    text-align: center;
+}
+.bas-sortie  h3{
+    font-size: 12px;
+    text-align: center;
+}
+.bas-sortie  p{
+    font-size: 8px;
+    
+}
+.bas-sortie{
+    margin: 0 auto;
+}
+.bas-text input{
+    width: 193px;
+    height: 25px;
+    border-radius: 10px;
+    text-align: center;
+    margin: 0 auto;
+}
+.bas-text button{
+    width: 174px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: #455FE7;
+    font-size: 10px;
+    margin: 0 auto;
+}

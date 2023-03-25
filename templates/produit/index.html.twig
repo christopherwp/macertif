@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produit index{% endblock %}
+
+{% block body %}
+    <div class=" pb-5 pt-5  container  ">
+        <div class="row">
+    {% for produit in produits %}
+        <div class="ml-1 col-xxl-3  col-xl-4 col-lg-6 col-md-12 col-sm-12 col-xs-12 mb-5">
+                        <div class=" card " style="width: 18rem;">
+                <img class="ya" src="{{ asset('img/') ~ produit.img}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">id: {{ produit.id }}</h5>
+                    <h5 class="card-title">Titre: {{ produit.titre }}</h5>
+                    <p class="card-text">Description : {{ produit.description }}</p>
+                    <p class="card-text">Description : {{ produit.prix }}</p>
+                    <a href="{{ path('app_produit_show', {'id': produit.id}) }}" class="btn btn-primary">Afficher</a>
+                    <a href="{{ path('app_produit_edit', {'id': produit.id}) }}" class="btn btn-primary">Modifier</a>
+                </div>
+                </div>
+        </div>
+         {% endfor %}
+        </div>
+         <div class="yo mb-5   "> <a class="btn btn-secondary"href="{{ path('app_produit_new') }}">Create new</a>   </div>   
+    </div>
+   
+        
+        
+      
+   
+{% endblock %}
