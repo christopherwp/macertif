@@ -1,9 +1,7 @@
-body{
-   
-}
+
 .position{
-     display: flex;
-   justify-content:center;
+    display: flex;
+    justify-content:center;
     position: relative;
      
 }
@@ -50,7 +48,7 @@ border: none;
     
 }
 .les-inputs input{
-     height: 58px;
+    height: 58px;
     width: 285px;
 }
 .sous-submit {
@@ -67,5 +65,12 @@ border: none;
     .nav-droite{
         display: none;
     }
+    .que{
+        display: flex !important;
+        flex-direction: row !important;
+        justify-content: center !important;
+        margin: 0 auto;
+    }
+    
     /* Insérez vos propriétés CSS ici, avec vos sélecteurs*/
     }
