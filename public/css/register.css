@@ -1,0 +1,71 @@
+body{
+   
+}
+.position{
+     display: flex;
+   justify-content:center;
+    position: relative;
+     
+}
+.register{
+    position: absolute;
+    top: -220px;
+    width:343px ;
+    height: 797px;
+    margin: 0 auto;
+    z-index: 1;
+    
+}
+.register h1{
+    font-size: 20px;
+}
+.register p{
+    font-size: 14px;
+    text-align: justify;
+    color: #b6b6b6;
+}
+ .politique{
+    color:#455fe7;
+}
+.souhait{
+    color:#000000;
+}
+
+.register input{
+    border-radius:10px ;
+    margin: 10px;
+    
+}
+.register button{
+border-radius: 10px;
+background-color: #d9d9d9;
+height: 45px;
+width: 275px;
+margin-left: 35px;
+border: none;
+}
+.les-inputs{
+   
+    text-align: center;
+    
+}
+.les-inputs input{
+     height: 58px;
+    width: 285px;
+}
+.sous-submit {
+   padding: 0 30px;
+   
+}
+.fin p {
+    color: #000000;
+    padding: 0 100px;
+}
+
+
+@media screen and (max-width: 1150px) {
+    .nav-droite{
+        display: none;
+    }
+    /* Insérez vos propriétés CSS ici, avec vos sélecteurs*/
+    }

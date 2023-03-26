@@ -1,19 +1,38 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Register{% endblock %}
+{% block stylesheets %}
 
+<link rel="stylesheet" href="{{asset('css/register.css')}}">
+{% endblock %}
 {% block body %}
-    <h1>Register</h1>
+<div class="position">
+    <div class="register">
+    <h1>S'inscrire sur le site</h1>
 
     {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.prenom) }}
-        {{ form_row(registrationForm.nom) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
-
-        <button type="submit" class="btn">Register</button>
+        <div class="les-inputs">
+        {{ form_widget(registrationForm.prenom, { 'attr': {'placeholder': 'Prénom'} }) }}
+        {{ form_widget(registrationForm.nom, { 'attr': {'placeholder': 'Nom de Famille'} }) }}
+        {{ form_widget(registrationForm.email, { 'attr': {'placeholder': 'Adresse e-mail'} }) }}
+        {{ form_widget(registrationForm.plainPassword, { 'attr': {'placeholder': 'Mot de passe'} }) }}
+        </div>
+        <br>
+        <div class="p-3 d-flex flex-row">
+        <div class="">{{ form_widget(registrationForm.agreeTerms) }}</div>
+        <div>
+        <p><span class="souhait"> Je ne souhaite pas recevoir d’e-mails promotionnels. </span> <br>
+        Vous pouvez vous désabonner des e-mails promouvant nos services similaires, maintenant ou à tout autre moment.Pour ne plus recevoir d’emails vous invitant à publier un avis client, veuillez vous rendre sur notre centre d’aide. Pour plus d’informations,consultez notre 
+            <span class="politique">Politique de confidentialité.</span></p>
+        </div>
+        </div>
+        
+        <button type="submit" class="">Créer un compte</button>
+        <div class="sous-submit"><p>En créant un compte, vous pouvez acceptez nos <span class="politique">Conditions d'utilisation</span> et notre <span class="politique">Politique de confidentialité</span></p>
+        <hr></div>
+        <div class="fin"><p>Déja inscrit?<a href="{{path('app_login')}}">Connexion</a></p></div>
+        
     {{ form_end(registrationForm) }}
+    </div>
+</div>
 {% endblock %}
