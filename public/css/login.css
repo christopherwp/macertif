@@ -35,6 +35,15 @@
    
 }
 
+
+.footer-basic{
+    position:absolute !important;
+    bottom: 0 !important;
+    right: 0;
+    left: 0;
+}
+
+
 @media screen and (max-width: 1150px) {
     .nav-droite{
         display: none;
