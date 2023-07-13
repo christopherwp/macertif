@@ -11,6 +11,7 @@
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
+    <script src="https://js.stripe.com/v3"></script>
     {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
     {% block stylesheets %}
 
@@ -27,22 +28,24 @@
             <div class=" nav-image  ">
                 <div class="que nav-flex d-flex flex-row justify-content-between">
                     <div class="logo">
-                        <img src="{{asset('/img/logo.png')}}" alt="">
+                        <a href="{{path('app_home')}}"><img src="{{asset('/img/logo.png')}}" alt=""></a>
                     </div>
                     <div class=" nav-droite     ">
                         <ul class="  d-flex flex-row ">
-                            <li><a href=""><i class="fa-sharp fa-solid fa-cart-shopping fa-2xl"
-                                        style="color: #ffffff;"></i></a></li>
-                            <li><a href=""><i class="fa-solid fa-phone fa-2xl " style="color: #ffffff;"></i></a></li>
+                            <li><a id="cadi" href="{{path('app_cart_show')}}"><i  class="fa-sharp fa-solid fa-cart-shopping fa-2xl"
+                                        ></i></a></li>
+                            <li><a href="{{path('app_contact')}}"><i class="fa-solid fa-phone fa-2xl "></i></a></li>
                             {% if is_granted('ROLE_ADMIN') %}
-                            <li><a class="admin-a" href="{{path('app_produit_index')}}">Produits</a></li>
-                            <li><a class="admin-a" href="{{path('app_categorie_index')}}">Catégorie</a></li>
-                            <li><a class="admin-a" href="{{path('app_user_index')}}">Utilisateurs</a></li>
+                            <li><a class="admin-a" href="{{path('app_admin_produit_index')}}">Produits</a></li>
+                            <li><a class="admin-a" href="{{path('app_admin_categorie_index')}}">Catégorie</a></li>
+                            <li><a class="admin-a" href="{{path('app_admin_user_index')}}">Utilisateurs</a></li>
+                            {% block search %} {% endblock %}
                             {% endif %}
                             {% if is_granted('ROLE_USER')==false %}
                             <li><a class="boutton " href="{{path('app_login')}}">Connexion</a></li>
                             {% endif %}
                             {% if is_granted('ROLE_USER') %}
+                            <li><a class="admin-a" href="{{path('app_profil')}}">Hello {{app.user.prenom}}</a></li>
                             <li><a class="boutton" href="{{path('app_logout')}}">Déconnexion</a></li>
                             {% endif %}
                             {% if is_granted('ROLE_USER')==false %}
@@ -55,29 +58,53 @@
             </div>
         </nav>
     </header>
-
-    
+    {# <p>{{titre}}</p>
+    <ul>
+    {% for categorie in cats.categories %}
+    <li><a href="{{path('app_produitcategorie', {'id' : categorie.id}) }}">{{categorie.titre}}</a><li>
+    {% endfor %}
+    </ul> #}
+    {# <pre>{{dump(cats.getcategories)}}</pre>
+    {% for categorie in cats.getcategories %}
+    <h1>{{categorie.titre}}
+    {% for produit in categorie.produits %}
+    <p>{{produit.titre}}</p>
+    {% endfor %}
+    {% endfor %} #} 
+    {# {{dump(cats.getcategories)}} #}
     {% block body %}{% endblock %}
+   
+    
+
+
 
      <div class="footer-basic">
         <footer>
             <div class="social"><a href="#"><i class="fa-brands fa-instagram "></i></a><a href="#"><i class="fa-brands fa-snapchat"></i></a><a href="#"><i class="fa-brands fa-twitter"></i></a><a href="#"><i class="fa-brands fa-facebook"></i></a></div>
             <ul class="list-inline">
-                <li class="list-inline-item"><a href="#">Page d'accueil</a></li>
-                <li class="list-inline-item"><a href="#">Services</a></li>
-                <li class="list-inline-item"><a href="#">A propos</a></li>
-                <li class="list-inline-item"><a href="#">Conditions</a></li>
-                <li class="list-inline-item"><a href="#">Politique de confidentialité</a></li>
+                <li class="list-inline-item"><a href="{{path('app_home')}}">Page d'accueil</a></li>
+                <li class="list-inline-item"><a href="{{path('app_contact')}}">Contact</a></li>
+                <li class="list-inline-item"><a href="{{path('app_propos')}}">A propos</a></li>
+                <li class="list-inline-item"><a href="{{path('app_cgv')}}">Conditions</a></li>
+                <li class="list-inline-item"><a href="{{path('app_politiquedeconfidentialite')}}">Politique de confidentialité</a></li>
             </ul>
             <p class="copyright">Company Name © 2023</p>
         </footer>
     </div>
 
 
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
-    <script src="{{ asset('js/script.js') }}"></script>
+        <script
+  src="https://code.jquery.com/jquery-migrate-3.4.1.js"
+  integrity="sha256-CfQXwuZDtzbBnpa5nhZmga8QAumxkrhOToWweU52T38="
+  crossorigin="anonymous">
+</script>
+   
+
+
 </body>
 
 </html>

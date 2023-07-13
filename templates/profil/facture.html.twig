@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+
+<div class="row gap-5 d-flex justify-content-center">
+<h2 style="text-align:center;">Mes Factures</h2>
+{% for factures in facture %}
+
+<div class="col-4 card" style="width: 18rem;min-height: 330px;">
+<div class="card-body">
+<h5 class="card-title">Numéro defacture n°{{factures.id}}</h5>
+<h5 class="card-title">Date de création : {{ factures.datecrea|date("d/m/Y") }}</h5>
+
+
+{% for commandes in commande  %}
+{% if factures.id == commandes.factures.id %}
+
+
+<p>Nom de la sortie: {{commandes.produits.titre}}</p>
+<p>Quantité: {{commandes.quantite}} </p>
+
+{% endif %}
+{% endfor %}
+</div>
+</div>
+
+{% endfor %} 
+</div>
+{# {{dump(commande)}} #}
+{% endblock %}

@@ -3,74 +3,105 @@
 {% block title %}{% endblock %}
 
 {% block body %}
+
 <main>
-        <div>
-            <h1>Nos expériences préférés</h1>
-            <div class="p-5 ">
-            <div class="Produit  mt-1 row">
-                <div  class=" col-3">
-                    <div class="card" style="width: 13rem;">
-                        <img class="card-img-top" src="..." alt="Card image cap">
-                        <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example </p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
+    
+       <div class="container text-center my-3">
+        <h1 class="font-weight-light"><a href="{{path('app_produit_index')}}">Nos activités</a></h1>
+        <div class="row mx-auto my-auto justify-content-center">
+            <div id="recipeCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner" role="listbox">
+                    <div class="carousel-item active">
+                        <div class="col-md-3 ">
+                            <div class="card ">
+                                <div class="card-img ">
+                                    <img src="{{asset('img/louvre.jpg')}}" class=" img-fluid custom-img">
+                                </div>
+                                <div class="card-img-overlay"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="col-md-3 ">
+                            <div class="card">
+                                <div class="card-img">
+                                    <img src="{{asset('img/gastronomie.jpg')}}" class="img-fluid  custom-img">
+                                </div>
+                                <div class="card-img-overlay"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="col-md-3 ">
+                            <div class="card">
+                                <div class="card-img custom-img">
+                                    <img src="{{asset('img/sportive.jpg')}}" class="img-fluid  custom-img">
+                                </div>
+                                <div class="card-img-overlay"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="col-md-3 ">
+                            <div class="card">
+                                <div class="card-img custom-img">
+                                    <img src="{{asset('img/notredame.jpg')}}" class="img-fluid  custom-img">
+                                </div>
+                                <div class="card-img-overlay"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="col-md-3 ">
+                            <div class="card">
+                                <div class="card-img custom-img">
+                                    <img src="{{asset('img/gastronomie2.jpg')}}" class="img-fluid  custom-img">
+                                </div>
+                                <div class="card-img-overlay"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="col-md-3 ">
+                            <div class="card">
+                                <div class="card-img">
+                                    <img src="{{asset('img/sport2.jpg')}}" class="img-fluid  custom-img">
+                                </div>
+                                <div class="card-img-overlay"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div class=" col-3">
-                    <div class="card" style="width: 13rem;">
-                        <img class="card-img-top" src="..." alt="Card image cap">
-                        <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example </p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class="card" style="width: 13rem;">
-                        <img class="card-img-top" src="..." alt="Card image cap">
-                        <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example </p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class="card" style="width: 13rem;">
-                        <img class="card-img-top" src="..." alt="Card image cap">
-                        <div class="card-body">
-                        <h5 class="card-title">Card title</h5>
-                        <p class="card-text">Some quick example </p>
-                        <a href="#" class="btn btn-primary">Go somewhere</a>
-                        </div>
-                    </div>
-                </div>
+                <a class="carousel-control-prev bg-transparent w-aut" href="#recipeCarousel" role="button" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </a>
+                <a class="carousel-control-next bg-transparent w-aut" href="#recipeCarousel" role="button" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </a>
             </div>
-            </div>
+        </div>
+       
+    </div>
             <div class="cadre">
                 <h2>Des expériences authentiques</h2>
                 <p>Laissez vous porter par votre  curiosité, ressentez l’émotion de la découverte et explorez le monde comme jamais.</p>
             </div>
+
             <div class="p-5 sortie">
-                <h2>Profitez de nos sorties</h2>
-                <div class=" d-flex flex-row justify-content-between">
-                    <div>
-                        <h3>Culturels</h3>
-                        <img src="{{asset('img/culture.jpg')}}" alt="">
+                 <h2>Profitez de nos sorties</h2>
+                    <div class=" d-flex flex-column  align-items-center flex-lg-row justify-content-lg-between">
+                        {% for categorie in cats.categories %}
+                        <div>
+                        <a href="{{path('app_produitcategorie' , { 'id': categorie.id }) }}">
+                        <h3>{{categorie.titre|capitalize}}</h3>
+                        <img src="{{asset('img/') ~ categorie.img}}" alt="">
+                        </a>
+                        </div>
+                        {% endfor %}
+                    
                     </div>
-                    <div>
-                        <h3>Gustatives</h3>
-                        <img src="{{asset('img/gastronomie.jpg')}}" alt="">
-                    </div>
-                    <div>
-                        <h3>Sportives</h3>
-                        <img src="{{asset('img/sportive.jpg')}}" alt="">
-                    </div>
-                </div>
             </div>
+
             <div class="p-2 bas-sortie d-flex flex-row justify-content-center">
                 <div class="bas-text">
                     <h3>On vous propose</h3>
@@ -83,6 +114,27 @@
                 </div>
             </div>
         </div>
+    
+
  </main>        
          
+
+            <script>
+let items = document.querySelectorAll('.carousel .carousel-item')
+
+items.forEach((el) => {
+    const minPerSlide = 4
+    let next = el.nextElementSibling
+    for (var i=1; i<minPerSlide; i++) {
+        if (!next) {
+            // wrap carousel by using first child
+        	next = items[0]
+      	}
+        let cloneChild = next.cloneNode(true)
+        el.appendChild(cloneChild.children[0])
+        next = next.nextElementSibling
+    }
+})
+
+    </script>
 {% endblock %}

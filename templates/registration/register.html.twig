@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="{{asset('css/register.css')}}">
 {% endblock %}
 {% block body %}
-<div class="position">
+<div class="position ">
     <div class="register">
     <h1>S'inscrire sur le site</h1>
 
@@ -23,12 +23,12 @@
         <div>
         <p><span class="souhait"> Je ne souhaite pas recevoir d’e-mails promotionnels. </span> <br>
         Vous pouvez vous désabonner des e-mails promouvant nos services similaires, maintenant ou à tout autre moment.Pour ne plus recevoir d’emails vous invitant à publier un avis client, veuillez vous rendre sur notre centre d’aide. Pour plus d’informations,consultez notre 
-            <span class="politique">Politique de confidentialité.</span></p>
+            <span class="politique"><a href="{{path('app_politiquedeconfidentialite')}}">Politique de confidentialité.</a></span></p>
         </div>
         </div>
         
-        <button type="submit" class="">Créer un compte</button>
-        <div class="sous-submit"><p>En créant un compte, vous pouvez acceptez nos <span class="politique">Conditions d'utilisation</span> et notre <span class="politique">Politique de confidentialité</span></p>
+        <button type="submit" class=" btn btn-secondary">Créer un compte</button>
+        <div class="sous-submit"><p><a href="{{path('app_cgv')}}">En créant un compte, vous pouvez acceptez nos</a><span class="politique">Conditions d'utilisation</span> et notre <span class="politique"><a href="{{path('app_politiquedeconfidentialite')}}">Politique de confidentialité</a></span></p>
         <hr></div>
         <div class="fin"><p>Déja inscrit?<a href="{{path('app_login')}}">Connexion</a></p></div>
         

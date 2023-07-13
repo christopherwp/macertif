@@ -15,10 +15,10 @@ class MailService {
         $this->mailer = $mailerInterface;
     }
 
-    public function envoieMail($email,$message){
+    public function envoieMail($email,$to,$message){
         $email = (new Email())
         ->from($email)
-        ->to($email)
+        ->to($to)
         //->cc('cc@example.com')
         //->bcc('bcc@example.com')
         //->replyTo('fabien@example.com')

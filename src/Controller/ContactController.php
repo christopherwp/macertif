@@ -27,7 +27,7 @@ class ContactController extends AbstractController
             $message_form = $data['votre_message'];
 
             $mailService->envoieMail(
-                $mail, $message_form
+                $mail,'parisevents@hotmail.fr', $message_form
             );
 
             return $this->renderForm('contact/reponse.html.twig', [

@@ -39,6 +39,15 @@ class ProduitRepository extends ServiceEntityRepository
         }
     }
 
+    public function chercherProduit(string $recherche) {
+        return $this
+            ->createQueryBuilder('a') // Select * FROM comment AS a
+            ->where('a.titre LIKE :recherche') // WHERE a.titre LIKE '%$recherche%'
+            ->setParameter('recherche', '%' . $recherche . '%') // Remplacement
+            ->getQuery()
+            ->getResult();
+    }
+
 //    /**
 //     * @return Produit[] Returns an array of Produit objects
 //     */

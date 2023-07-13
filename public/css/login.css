@@ -1,7 +1,13 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+
 .position{
     display: flex;
     justify-content:center;
     position: relative;
+   
      
 }
 .login{

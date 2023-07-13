@@ -3,36 +3,18 @@
 {% block title %}Produit{% endblock %}
 
 {% block body %}
-    <h1>Produit</h1>
-
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ produit.id }}</td>
-            </tr>
-            <tr>
-                <th>Titre</th>
-                <td>{{ produit.titre }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ produit.description }}</td>
-            </tr>
-            <tr>
-                <th>Prix</th>
-                <td>{{ produit.prix }}</td>
-            </tr>
-            <tr>
-                <th>Img</th>
-                <td>{{ produit.img }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_produit_index') }}">back to list</a>
-
-    <a href="{{ path('app_produit_edit', {'id': produit.id}) }}">edit</a>
-
-    {{ include('produit/_delete_form.html.twig') }}
+    
+    <div class="container mt-5">
+   <div class="card mb-3">
+  <img class="card-img-top" src="{{asset('img/' ~ produit.img)}}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title text-center" style="height:40px;">{{produit.titre|capitalize}}</h5>
+    <p class="card-text text-center" style="height:40px;">{{produit.description|capitalize}}</p>
+    <p class="card-text text-center" style="height:30px;"><small class="text-muted">{{produit.prix}} euros</small></p>
+  </div>
+    <a href="{{path('app_cart_add', {'id': produit.id }) }}" class="text-center btn btn-secondary">Ajouter au panier</a>
+</div>
+</div>
+<a href="{{ path('app_produit_index') }}">Retourner aux produits</a>
+   
 {% endblock %}

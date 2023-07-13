@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello CartController!{% endblock %}
+
+{% block body %}
+
+<h1>Mon panier</h1>
+<h2>Montant Total : {{total}} </h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id_produit</th>
+                <th>image</th>
+                <th>titre</th>
+                <th>description</th>
+                <th>prix</th>
+                <th>Quantite</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+         {# {{dump(panier)}} #}
+            {% for monpanier in panier %}
+             {# { {{ dump(monpanier)}} } #}
+            <tr>
+                <td>{{monpanier.produit.id}}</td>
+                <td><img src="{{ asset('img/') ~monpanier.produit.img}}" class="w-25 " ></td>
+                <td>{{monpanier.produit.titre}}</td>
+                <td>{{monpanier.produit.description}}</td>
+                <td>{{monpanier.produit.prix}}</td>
+                <td>
+                    <a href="{{ path('app_cart_removequantite', {'id': monpanier.produit.id}) }}">-</a>
+                    {{monpanier.quantite}}
+                    <a href="{{ path('app_cart_add', {'id': monpanier.produit.id}) }}">+</a>
+                </td>
+                <td>{{monpanier.total}} €</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Montant Total : {{total}} </h2>
+    <a href="{{path('app_commande')}}">payer</a>
+{% endblock %}

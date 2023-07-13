@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produit index{% endblock %}
+{% block search %}  
+<form class="form-inline my-2 my-lg-0"style="padding-top:15px;">
+    <input class="form-control mr-sm-2" name="search" type="search" placeholder="Search"method="get" aria-label="Search">
+    <button class="btn btn-light my-2 my-sm-0" type="submit">Search</button>
+</form>
+ {% endblock %}
+
+{% block body %}
+    <h1>Produit index</h1>
+{% if resultats %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Prix</th>
+                <th>Img</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for produit in resultats %}
+            <tr>
+                <td>{{ produit.id }}</td>
+                <td>{{ produit.titre }}</td>
+                <td>{{ produit.description }}</td>
+                <td>{{ produit.prix }}</td>
+                <td><img class="w-25" src="{{ asset('img/') ~ produit.img}}" alt="image"></td>
+                <td>
+                    <a href="{{ path('app_admin_produit_show', {'id': produit.id}) }}">show</a>
+                    <a href="{{ path('app_admin_produit_edit', {'id': produit.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        {% else %}
+        <p> Auncun résultat</p>
+        {% endif %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_admin_produit_new') }}">Create new</a>
+{% endblock %}

@@ -1,6 +1,9 @@
 twig:
     default_path: '%kernel.project_dir%/templates'
-
+    globals:
+        titre: "une variable globale"
+        cats: '@App\Service\CategorieService'
 when@test:
     twig:
         strict_variables: true
+

@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProfilController!{% endblock %}
+
+{% block body %}
+<p><span>Nom: {{user.nom}}</span></p>
+<p>Prénom: {{user.prenom}}</p> 
+<p>Adresse mail: {{user.email}}
+
+<div><a class="btn btn-secondary btn-lg" href="{{path('app_facture')}}">Voir mes factures</a></div>
+
+
+
+
+{% endblock %}

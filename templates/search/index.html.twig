@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SearchController!{% endblock %}
+
+{% block body %}
+                            
+        {% if resultats %}
+                                {% for search in resultats %}
+                                    <p>id: {{search.id}}</id>
+                                    <p>Prénom: {{search.prenom}}</id>
+                                    <p>Nom: {{search.nom}}</id>
+                                    
+                                {% endfor %}
+                    {% else %}
+    <p>aucun résultat trouvé</p>
+        {% endif %}
+        {{dump()}}
+
+                            
+                        
+{% endblock %}
